@@ -4,13 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ulacit.devappweb</groupId>
     <artifactId>food_alpha_project</artifactId>
-    <packaging>pom</packaging>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>AppFuse Modular Application</name>
+    <name>AppFuse Spring MVC Application</name>
 
     <parent>
         <groupId>org.appfuse</groupId>
-        <artifactId>appfuse</artifactId>
+        <artifactId>appfuse-web</artifactId>
         <version>3.5.0</version>
     </parent>
 
@@ -27,47 +27,32 @@
         </repository>
     </repositories>
 
+
     <build>
         <plugins>
             <plugin>
-                <groupId>org.appfuse.plugins</groupId>
-                <artifactId>appfuse-maven-plugin</artifactId>
-                <version>${appfuse.version}</version>
-                <configuration>
-                    <componentProperties>
-                        <implementation>annotationconfiguration</implementation>
-                    </componentProperties>
-                    <genericCore>${amp.genericCore}</genericCore>
-                    <fullSource>${amp.fullSource}</fullSource>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>${jdbc.groupId}</groupId>
-                        <artifactId>${jdbc.artifactId}</artifactId>
-                        <version>${jdbc.version}</version>
-                    </dependency>
-                </dependencies>
+                <groupId>de.juplo</groupId>
+                <artifactId>hibernate4-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>dbunit-maven-plugin</artifactId>
             </plugin>
         </plugins>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-        <testResources>
-            <testResource>
-                <directory>src/test/resources</directory>
-                <filtering>true</filtering>
-            </testResource>
-        </testResources>
     </build>
 
     <dependencies>
         <dependency>
-            <groupId>org.subethamail</groupId>
-            <artifactId>subethasmtp-wiser</artifactId>
-            <scope>test</scope>
+            <groupId>org.appfuse</groupId>
+            <artifactId>appfuse-${web.framework}</artifactId>
+            <version>${appfuse.version}</version>
+            <type>pom</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.appfuse</groupId>
+                    <artifactId>appfuse-hibernate</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
@@ -82,8 +67,31 @@
         <appfuse.version>3.5.0</appfuse.version>
         <java.version>1.7</java.version>
     </properties>
-  <modules>
-    <module>core</module>
-    <module>web</module>
-  </modules>
+
+    <profiles>
+        <profile>
+            <id>itest</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.cargo</groupId>
+                        <artifactId>cargo-maven2-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>webtest-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>webtest-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>
