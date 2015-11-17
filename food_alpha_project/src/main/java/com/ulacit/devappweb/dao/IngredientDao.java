@@ -8,6 +8,6 @@ import com.ulacit.devappweb.model.Ingredient;
 import java.util.List;
 
 public interface IngredientDao extends GenericDao<Ingredient, Long> {
-	public List<Ingredient> findByFirstName(String name);
+	public List<Ingredient> findByName(String name);
  
 }
