@@ -2,14 +2,12 @@ package com.ulacit.devappweb.dao;
  
 
 import org.appfuse.dao.GenericDao;
-import org.appfuse.tutorial.model.Person;
+
+import com.ulacit.devappweb.model.Ingredient;
 
 import java.util.List;
 
-public interface IngredientDao extends GenericDao<Person, Long> {
-	public List<Person> findByFirstName(String firstName);
-
-	public List<Person> findByLastName(String lastName);
-
-	public List<Person> findByEmail(String email);
+public interface IngredientDao extends GenericDao<Ingredient, Long> {
+	public List<Ingredient> findByFirstName(String name);
+ 
 }
