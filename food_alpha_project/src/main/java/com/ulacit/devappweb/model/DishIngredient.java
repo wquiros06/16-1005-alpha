@@ -12,7 +12,7 @@ import org.appfuse.model.BaseObject;
 
 @XmlRootElement
 @Entity
-@Table(name = "ingredient")
+@Table(name = "dish_ingredient")
 public class DishIngredient extends BaseObject {
 	private Long dishId;
 	private Long ingredientId;
