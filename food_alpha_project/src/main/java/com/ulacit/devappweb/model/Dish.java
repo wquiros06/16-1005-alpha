@@ -4,11 +4,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity; 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id; 
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.appfuse.model.BaseObject; 
+import org.appfuse.model.BaseObject;
+
+import com.fasterxml.jackson.annotation.JsonIgnore; 
 
 @SuppressWarnings("serial")
 @XmlRootElement
@@ -19,6 +23,7 @@ public class Dish extends BaseObject {
 	private String name;
 	private String description;
 	private Long photo;
+	private Order order;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -55,6 +60,17 @@ public class Dish extends BaseObject {
 
 	public void setPhoto(Long photo) {
 		this.photo = photo;
+	}
+	
+	@ManyToOne
+	@JoinColumn(name = "order_id", nullable = false)
+	@JsonIgnore	
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
 	@Override
