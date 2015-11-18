@@ -155,7 +155,7 @@
             <value>2</value>            
         </row>     
     </table>  
-=======
+
 	<table name="app_user">
 		<column>id</column>
 		<column>username</column>
