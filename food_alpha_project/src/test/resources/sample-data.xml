@@ -119,4 +119,39 @@
             <value description="role_id">-2</value>
         </row>
     </table>
+    
+    <table name='employee'>
+        <column>employee_id</column>
+        <column>identity</column>
+        <column>name</column>
+        <column>last_name</column>
+        <row>
+            <value>1</value>
+            <value>123456789</value>
+            <value>Mike</value>
+            <value>Guzman</value>
+        </row>  
+        <row>
+            <value>2</value>
+            <value>701940086</value>
+            <value>Wen</value>
+            <value>Quiros</value>
+        </row>      
+    </table>
+    
+    <table name='contact'>
+    	<column>contact_id</column>
+        <column>email</column>
+        <column>employee_id</column>
+        <row>
+            <value>1</value>
+            <value>matt@email.com</value>
+            <value>1</value>            
+        </row>
+        <row>
+            <value>2</value>
+            <value>wquirosr086@ulacit.ed.cr</value>
+            <value>2</value>            
+        </row>     
+    </table>  
 </dataset>

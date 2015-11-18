@@ -19,20 +19,21 @@ import org.appfuse.model.BaseObject;
 @Entity
 @Table(name = "employee")
 public class Employee extends BaseObject {
-	private Long id;
+	private Long employeeId;
 	private String identity;
 	private String name;
 	private String lastName;
 	private Set<Contact> employeeContact;
+	private Set<Order> employeeOrder;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", unique = true, nullable = false)
-	public Long getId() {
-		return id;
+	@Column(name = "employee_id", unique = true, nullable = false)
+	public Long getEmployeeId() {
+		return employeeId;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setEmployeeId(Long id) {
+		this.employeeId = id;
 	}
 	
 	@Column(name = "identity", length = 32)
@@ -51,7 +52,7 @@ public class Employee extends BaseObject {
 		this.name = name;
 	}
 	
-	@Column(name = "last_ame", length = 150)
+	@Column(name = "last_name", length = 150)
 	public String getLastName() {
 		return lastName;
 	}
@@ -66,11 +67,19 @@ public class Employee extends BaseObject {
 	public void setEmployeeContact(Set<Contact> employeeContact) {
 		this.employeeContact = employeeContact;
 	}
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "employee", cascade = CascadeType.ALL)
+	public Set<Order> getEmployeeOrder() {
+		return employeeOrder;
+	}
+	public void setEmployeeOrder(Set<Order> employeeOrder) {
+		this.employeeOrder = employeeOrder;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((employeeId == null) ? 0 : employeeId.hashCode());
 		result = prime * result + ((identity == null) ? 0 : identity.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
@@ -85,10 +94,10 @@ public class Employee extends BaseObject {
 		if (getClass() != obj.getClass())
 			return false;
 		Employee other = (Employee) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (employeeId == null) {
+			if (other.employeeId != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!employeeId.equals(other.employeeId))
 			return false;
 		if (identity == null) {
 			if (other.identity != null)
@@ -107,12 +116,11 @@ public class Employee extends BaseObject {
 			return false;
 		return true;
 	}
+	
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", identity=" + identity + ", name=" + name + ", lastName=" + lastName + "]";
+		return "Employee [employeeId=" + employeeId + ", identity=" + identity + ", name=" + name + ", lastName="
+				+ lastName + "]";
 	}
 
-
-	
-	
 }
