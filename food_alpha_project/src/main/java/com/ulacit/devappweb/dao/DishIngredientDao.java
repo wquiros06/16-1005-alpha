@@ -8,4 +8,6 @@ import java.util.List;
 import org.appfuse.dao.GenericDao;
 
 public interface DishIngredientDao extends GenericDao<DishIngredient, Long> {
+	
+	public List<DishIngredient> findByDishId(Long dishId);
 }
