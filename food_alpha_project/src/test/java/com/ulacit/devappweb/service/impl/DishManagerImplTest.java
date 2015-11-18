@@ -52,7 +52,7 @@ public class DishManagerImplTest extends BaseManagerMockTestCase {
     }
 
     @Test
-    public void testSaveIngredient() {
+    public void testSaveDish() {
         log.debug("testing save...");
 
         //given
