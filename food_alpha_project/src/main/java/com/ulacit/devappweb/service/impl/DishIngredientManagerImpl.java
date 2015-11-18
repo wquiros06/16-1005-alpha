@@ -21,7 +21,7 @@ import com.ulacit.devappweb.service.DishIngredientManager;
 import com.ulacit.devappweb.service.IngredientManager;
 
 @Transactional
-@Service("DishIngredientManager")
+@Service("dishIngredientManager")
 @WebService(serviceName = "DishIngredientService", endpointInterface = "com.ulacit.devappweb.DishIngredientManager")
 public class DishIngredientManagerImpl extends GenericManagerImpl<DishIngredient, Long> implements DishIngredientManager {
 	DishIngredientDao dishIngredientDao;
