@@ -1,11 +1,12 @@
 package com.ulacit.devappweb.service.impl;
 
-import org.appfuse.service.impl.BaseManagerMockTestCase;
-import org.appfuse.tutorial.dao.PersonDao;
-import org.appfuse.tutorial.model.Person;
+import org.appfuse.service.impl.BaseManagerMockTestCase; 
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+
+import com.ulacit.devappweb.dao.IngredientDao;
+import com.ulacit.devappweb.model.Ingredient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,63 +17,63 @@ import static org.mockito.BDDMockito.*;
 public class IngredientManagerImplTest extends BaseManagerMockTestCase {
 
     @InjectMocks
-    private PersonManagerImpl manager;
+    private IngredientManagerImpl manager;
 
     @Mock
-    private PersonDao dao;
+    private IngredientDao dao;
 
     @Test
     public void testGetPerson() {
         log.debug("testing get...");
         //given
-        final Long id = 7L;
-        final Person person = new Person();
-        given(dao.get(id)).willReturn(person);
+        final Long id = 1L;
+        final Ingredient ingredient = new Ingredient();
+        given(dao.get(id)).willReturn(ingredient);
 
         //when
-        Person result = manager.get(id);
+        Ingredient result = manager.get(id);
 
         //then
-        assertSame(person, result);
+        assertSame(ingredient, result);
     }
 
     @Test
-    public void testGetPersons() {
+    public void testGetIngredients() {
         log.debug("testing getAll...");
         //given
-        final List persons = new ArrayList();
-        given(dao.getAll()).willReturn(persons);
+        final List ingredients = new ArrayList();
+        given(dao.getAll()).willReturn(ingredients);
 
         //when
         List result = manager.getAll();
 
         //then
-        assertSame(persons, result);
+        assertSame(ingredients, result);
     }
 
     @Test
-    public void testSavePerson() {
+    public void testSaveIngredient() {
         log.debug("testing save...");
 
         //given
-        final Person person = new Person();
+        final Ingredient ingredient = new Ingredient();
         // enter all required fields
 
-        given(dao.save(person)).willReturn(person);
+        given(dao.save(ingredient)).willReturn(ingredient);
 
         //when
-        manager.save(person);
+        manager.save(ingredient);
 
         //then
-        verify(dao).save(person);
+        verify(dao).save(ingredient);
     }
 
     @Test
-    public void testRemovePerson() {
+    public void testRemoveIngredient() {
         log.debug("testing remove...");
 
         //given
-        final Long id = -11L;
+        final Long id = 1L;
         willDoNothing().given(dao).remove(id);
 
         //when
