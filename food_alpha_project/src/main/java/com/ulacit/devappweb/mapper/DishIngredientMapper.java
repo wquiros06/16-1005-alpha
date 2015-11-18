@@ -25,5 +25,5 @@ public interface DishIngredientMapper {
 		@Mapping(source = "quantity", target = "quantity") ,
 		@Mapping(source = "measure", target = "measure") ,
 		})
-	IngredientDTO dishIngredientToDishIngredientDTO(DishIngredient dishIngredient);
+	DishIngredientDTO dishIngredientToDishIngredientDTO(DishIngredient dishIngredient);
 }
