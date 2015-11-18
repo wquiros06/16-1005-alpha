@@ -115,10 +115,6 @@
             <value description="user_id">-3</value>
             <value description="role_id">-1</value>
         </row>
-        <row>
-            <value description="user_id">-3</value>
-            <value description="role_id">-2</value>
-        </row>
     </table>
     
     <table name='employee'>
@@ -273,10 +269,6 @@
 			<value description="user_id">-3</value>
 			<value description="role_id">-1</value>
 		</row>
-		<row>
-			<value description="user_id">-3</value>
-			<value description="role_id">-2</value>
-		</row>
 	</table>
 
 
@@ -320,15 +312,14 @@
 		<row>
 			<value description="id">1</value>
 			<value description="name">ArrozconPollo</value>
-			<value description="name">Comida de Fiesta</value>
-			<value description="name">10</value>
+			<value description="description">Comida de Fiesta</value>
+			<value description="photo">10</value>
 		</row>
 		<row>
 			<value description="id">2</value>
 			<value description="name">Cantones</value>
-			<value description="name">Comida China</value>
-			<value description="name">11</value>
+			<value description="description">Comida China</value>
+			<value description="photo">11</value>
 		</row>
-	</table>
-	
+</table>
 </dataset>

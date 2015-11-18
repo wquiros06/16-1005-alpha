@@ -21,27 +21,27 @@ public class DishDaoTest extends BaseDaoTestCase {
         assertTrue(dishes.size() > 0);
     }
     
-/*
+
     @Test(expected=DataAccessException.class)
-    public void testAddAndRemoveIngredient() throws Exception {
+    public void testAddAndRemoveDish() throws Exception {
         Dish dish = new Dish();
         dish.setName("Cantones");
 
-        dish = DishDao.save(dish);
+        dish = dishDao.save(dish);
         flush();
 
-        dish = DishDao.get(dish.getId());
+        dish = dishDao.get(dish.getId());
 
         assertEquals("Cantones", dish.getName());
         assertNotNull(dish.getId());
 
-        log.debug("removing ingredient...");
+        log.debug("removing dish...");
 
-        ingredientDao.remove(ingredient.getId());
+        dishDao.remove(dish.getId());
         flush();
 
         // should throw DataAccessException
-        ingredientDao.get(ingredient.getId());
+        dishDao.get(dish.getId());
     }
-*/
+
 }
