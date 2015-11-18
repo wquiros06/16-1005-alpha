@@ -23,6 +23,12 @@
         <jaxrs:serviceBeans>
             <ref bean="userManager"/>
             <ref bean="ingredientManager" />
+            <ref bean="dishIngredientManager" />
+<<<<<<< HEAD
+            <ref bean="employeeManager" />
+=======
+             <ref bean="dishManager" />
+>>>>>>> 2b015908bb8e9d619a5dcd6f0b93b77643c73685
         </jaxrs:serviceBeans>
         <jaxrs:providers>
             <ref bean="jsonProvider"/>
