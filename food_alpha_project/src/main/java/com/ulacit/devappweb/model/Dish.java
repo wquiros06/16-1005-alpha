@@ -10,6 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.appfuse.model.BaseObject; 
 
+@SuppressWarnings("serial")
 @XmlRootElement
 @Entity
 @Table(name = "dish")
