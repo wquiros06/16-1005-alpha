@@ -7,8 +7,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.ulacit.devappweb.dao.DishIngredientDao;
-import com.ulacit.devappweb.model.DishIngredient;
-import com.ulacit.devappweb.model.Ingredient;
+import com.ulacit.devappweb.model.DishIngredient; 
 
 @Repository("dishIngredientDao")
 public class DishIngredientDaoHibernate extends GenericDaoHibernate<DishIngredient, Long> implements DishIngredientDao {
