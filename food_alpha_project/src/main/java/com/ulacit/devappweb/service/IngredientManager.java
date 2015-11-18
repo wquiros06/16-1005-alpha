@@ -22,7 +22,7 @@ public interface IngredientManager extends GenericManager<Ingredient, Long> {
 	@GET
 	@Path("{name}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	List<IngredientDTO> findByFirstName(@PathParam("name") String firstname);
+	List<IngredientDTO> findByName(@PathParam("name") String firstname);
 	// URL: /services/api/people/Matt
  
  

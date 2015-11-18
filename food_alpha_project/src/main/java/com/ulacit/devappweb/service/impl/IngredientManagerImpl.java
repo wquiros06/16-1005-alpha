@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.jws.WebService;
 
-import org.appfuse.service.impl.GenericManagerImpl; 
+import org.appfuse.service.impl.GenericManagerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,8 +17,8 @@ import com.ulacit.devappweb.service.IngredientManager;
 
 @Transactional
 @Service("ingredientManager")
-@WebService(serviceName = "IngredientService", endpointInterface = "org.appfuse.tutorial.service.IngredientManager")
-public class IngredientManagerImpl extends GenericManagerImpl<Ingredient, Long>implements IngredientManager {
+@WebService(serviceName = "IngredientService", endpointInterface = "com.ulacit.devappweb.IngredientManager")
+public class IngredientManagerImpl extends GenericManagerImpl<Ingredient, Long> implements IngredientManager {
 	IngredientDao ingredientDao;
 
 	public IngredientManagerImpl() {
@@ -30,23 +30,20 @@ public class IngredientManagerImpl extends GenericManagerImpl<Ingredient, Long>i
 		this.ingredientDao = ingredientDao;
 	}
 
-	public List<IngredientDTO> findByFirstName(String name) {
+	public List<IngredientDTO> findByName(String name) {
 		List<IngredientDTO> ingredientDTOs = null;
-		List<Ingredient> ingredientList = IngredientDao.findByName(name);
+		List<Ingredient> ingredientList = ingredientDao.findByName(name);
 
-		ingredientDTOs = IngredientMapper.INSTANCE.personsToPersonsDTOs(personList);
+		ingredientDTOs = IngredientMapper.INSTANCE.ingredientsToIngredientsDTOs(ingredientList);
 
 		return ingredientDTOs;
 	}
 
-
-
-
 	public List<IngredientDTO> getIngredients() {
 		List<IngredientDTO> ingredientDTOs = null;
-		List<Ingredient> ingredientList = IngredientDao.getAll();
+		List<Ingredient> ingredientList = ingredientDao.getAll();
 
-		ingredientDTOs = IngredientMapper.INSTANCE.personsToPersonsDTOs(ingredientList);
+		ingredientDTOs = IngredientMapper.INSTANCE.ingredientsToIngredientsDTOs(ingredientList);
 
 		return ingredientDTOs;
 	}

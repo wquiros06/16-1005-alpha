@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.ulacit.devappweb.dao.IngredientDao;
 import com.ulacit.devappweb.model.Ingredient;
 
-@Repository("personDao")
+@Repository("ingredientDao")
 public class IngredientDaoHibernate extends GenericDaoHibernate<Ingredient, Long>implements IngredientDao {
 
 	public IngredientDaoHibernate() {
