@@ -1,37 +1,41 @@
 package com.ulacit.devappweb.model;
- 
+
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Entity; 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id; 
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.appfuse.model.BaseObject; 
+import org.appfuse.model.BaseObject;
 
-@SuppressWarnings("serial")
 @XmlRootElement
 @Entity
-@Table(name = "dish")
-public class Dish extends BaseObject {
-	private Long id;
+@Table(name = "header_state")
+public class HeaderState extends BaseObject {
+	private int headerStateId;
 	private String name;
 	private String description;
-	private Long photo;
+	private Set<DetailState> headerDetailState;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", unique = true, nullable = false)
-	public Long getId() {
-		return id;
+	@Column(name = "header_state_id", unique = true, nullable = false)
+	public int getHeaderStateId() {
+		return headerStateId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setHeaderStateId(int headerStateId) {
+		this.headerStateId = headerStateId;
 	}
 
-	@Column(name = "name", length = 100)
+	@Column(name = "name", length = 50)
 	public String getName() {
 		return name;
 	}
@@ -39,8 +43,8 @@ public class Dish extends BaseObject {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	@Column(name = "description", length = 255)
+
+	@Column(name = "description", length = 150)
 	public String getDescription() {
 		return description;
 	}
@@ -48,13 +52,14 @@ public class Dish extends BaseObject {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	public Long getPhoto() {
-		return photo;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "headerState", cascade = CascadeType.ALL)
+	public Set<DetailState> getHeaderDetailState() {
+		return headerDetailState;
 	}
 
-	public void setPhoto(Long photo) {
-		this.photo = photo;
+	public void setHeaderDetailState(Set<DetailState> headerDetailState) {
+		this.headerDetailState = headerDetailState;
 	}
 
 	@Override
@@ -62,9 +67,8 @@ public class Dish extends BaseObject {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + headerStateId;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((photo == null) ? 0 : photo.hashCode());
 		return result;
 	}
 
@@ -76,33 +80,25 @@ public class Dish extends BaseObject {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Dish other = (Dish) obj;
+		HeaderState other = (HeaderState) obj;
 		if (description == null) {
 			if (other.description != null)
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
+		if (headerStateId != other.headerStateId)
 			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (photo == null) {
-			if (other.photo != null)
-				return false;
-		} else if (!photo.equals(other.photo))
-			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Ingredient [id=" + id + ", name=" + name + "]";
+		return "HeaderState [headerStateId=" + headerStateId + ", name=" + name + ", description=" + description + "]";
 	}
 
 }

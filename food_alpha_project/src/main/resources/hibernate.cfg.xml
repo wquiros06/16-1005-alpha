@@ -10,5 +10,10 @@
         <mapping class="org.appfuse.model.Role"/>
         <mapping class="com.ulacit.devappweb.model.Ingredient"/>
         <mapping class="com.ulacit.devappweb.model.DishIngredient"/>
+        <mapping class="com.ulacit.devappweb.model.Contact"/>
+        <mapping class="com.ulacit.devappweb.model.Employee"/>
+        <mapping class="com.ulacit.devappweb.model.Review"/>
+        <mapping class="com.ulacit.devappweb.model.Dish"/>
+        <mapping class="com.ulacit.devappweb.model.Menu"/>
     </session-factory>
 </hibernate-configuration>

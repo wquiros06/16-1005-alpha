@@ -1,5 +1,7 @@
 package com.ulacit.devappweb.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,48 +18,52 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @XmlRootElement
 @Entity
-@Table(name = "contact")
-public class Contact extends BaseObject {
-	private Long contactId;
-	private String email;
+@Table(name = "order")
+public class Order extends BaseObject {
+	private Long orderId;
+	private Date dateOrder;
 	private Employee employee;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "contact_id", unique = true, nullable = false)
-	public Long getContactId() {
-		return contactId;
+	@Column(name = "order_id", unique = true, nullable = false)
+	public Long getOrderId() {
+		return orderId;
 	}
-	public void setContactId(Long id) {
-		this.contactId = id;
+
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
 	}
-	
-	@Column(name = "email", length = 100)
-	public String getEmail() {
-		return email;
+
+	@Column(name = "date_order")
+	public Date getDateOrder() {
+		return dateOrder;
 	}
-	
-	public void setEmail(String email) {
-		this.email = email;
+
+	public void setDateOrder(Date dateOrder) {
+		this.dateOrder = dateOrder;
 	}
-	
+
 	@ManyToOne
 	@JoinColumn(name = "employee_id", nullable = false)
-	@JsonIgnore	
+	@JsonIgnore
 	public Employee getEmployee() {
 		return employee;
 	}
+
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((contactId == null) ? 0 : contactId.hashCode());
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((dateOrder == null) ? 0 : dateOrder.hashCode());
+		result = prime * result + ((orderId == null) ? 0 : orderId.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -66,24 +72,23 @@ public class Contact extends BaseObject {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Contact other = (Contact) obj;
-		if (contactId == null) {
-			if (other.contactId != null)
+		Order other = (Order) obj;
+		if (dateOrder == null) {
+			if (other.dateOrder != null)
 				return false;
-		} else if (!contactId.equals(other.contactId))
+		} else if (!dateOrder.equals(other.dateOrder))
 			return false;
-		if (email == null) {
-			if (other.email != null)
+		if (orderId == null) {
+			if (other.orderId != null)
 				return false;
-		} else if (!email.equals(other.email))
+		} else if (!orderId.equals(other.orderId))
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
-		return "Contact [contactId=" + contactId + ", email=" + email + "]";
+		return "Order [orderId=" + orderId + ", dateOrder=" + dateOrder + "]";
 	}
-	
-	
-	
+
 }
