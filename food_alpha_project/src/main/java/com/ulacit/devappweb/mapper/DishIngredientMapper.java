@@ -10,8 +10,7 @@ import org.mapstruct.factory.Mappers;
 
 import com.ulacit.devappweb.dto.DishIngredientDTO;
 import com.ulacit.devappweb.dto.IngredientDTO;
-import com.ulacit.devappweb.model.DishIngredient;
-import com.ulacit.devappweb.model.Ingredient;
+import com.ulacit.devappweb.model.DishIngredient; 
 
 @Mapper
 public interface DishIngredientMapper {

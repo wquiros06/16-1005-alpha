@@ -13,6 +13,7 @@ import com.ulacit.devappweb.dao.DishIngredientDao;
 import com.ulacit.devappweb.dao.IngredientDao;
 import com.ulacit.devappweb.dto.DishIngredientDTO;
 import com.ulacit.devappweb.dto.IngredientDTO;
+import com.ulacit.devappweb.mapper.DishIngredientMapper;
 import com.ulacit.devappweb.mapper.IngredientMapper;
 import com.ulacit.devappweb.model.DishIngredient;
 import com.ulacit.devappweb.model.Ingredient;
@@ -36,9 +37,9 @@ public class DishIngredientManagerImpl extends GenericManagerImpl<DishIngredient
 
 	public List<DishIngredientDTO> findByDish(Long dishId) {
 		List<DishIngredientDTO> dishIngredientDTOs = null;
-		List<DishIngredient> dishIngredientList = dishIngredientDao.get(dishId) ;
+		List<DishIngredient> dishIngredientList = dishIngredientDao.findByDishId(dishId) ;
 
-		dishIngredientDTOs = IngredientMapper.INSTANCE.ingredientsToIngredientsDTOs(dishIngredientList);
+		dishIngredientDTOs = DishIngredientMapper.INSTANCE.dishIngredientsToDishIngredientsDTOs(dishIngredientList);
 
 		return dishIngredientDTOs;
 	}
@@ -47,7 +48,7 @@ public class DishIngredientManagerImpl extends GenericManagerImpl<DishIngredient
 		List<DishIngredientDTO> dishIngredientDTOs = null;
 		List<DishIngredient> dishIngredientList = dishIngredientDao.getAll();
 
-		dishIngredientDTOs = IngredientMapper.INSTANCE.ingredientsToIngredientsDTOs(dishIngredientList);
+		dishIngredientDTOs = DishIngredientMapper.INSTANCE.dishIngredientsToDishIngredientsDTOs(dishIngredientList);
 
 		return dishIngredientDTOs;
 	}
