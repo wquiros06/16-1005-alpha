@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-<<<<<<< HEAD
+
     <table name="app_user">
         <column>id</column>
         <column>username</column>
