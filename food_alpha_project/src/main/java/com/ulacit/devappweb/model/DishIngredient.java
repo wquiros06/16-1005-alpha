@@ -1,14 +1,20 @@
 package com.ulacit.devappweb.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.appfuse.model.BaseObject;
+import org.appfuse.model.BaseObject; 
 
 @XmlRootElement
 @Entity
@@ -16,6 +22,7 @@ import org.appfuse.model.BaseObject;
 public class DishIngredient extends BaseObject {
 	private Long dishId;
 	private Long ingredientId;
+	private Ingredient ingredient;
 	private Long quantity;
 	private String measure;
 
@@ -57,6 +64,17 @@ public class DishIngredient extends BaseObject {
 
 	public void setMeasure(String measure) {
 		this.measure = measure;
+	}
+	
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "ingredient", cascade = CascadeType.ALL)
+	// @JsonIgnore
+	// @XmlTransient
+	public Ingredient getIngredient() {
+		return ingredient;
+	}
+
+	public void setIngredient(Ingredient ingredient) {
+		this.ingredient = ingredient;
 	}
 
 	@Override

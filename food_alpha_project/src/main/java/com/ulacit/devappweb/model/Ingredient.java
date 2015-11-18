@@ -1,14 +1,21 @@
 package com.ulacit.devappweb.model;
  
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity; 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id; 
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.appfuse.model.BaseObject; 
+import org.appfuse.model.BaseObject;
+
+import com.fasterxml.jackson.annotation.JsonIgnore; 
 
 @XmlRootElement
 @Entity
@@ -16,6 +23,7 @@ import org.appfuse.model.BaseObject;
 public class Ingredient extends BaseObject {
 	private Long id;
 	private String name;
+	private Ingredient ingredient;
 
 	// START SNIPPET: personId
 	@Id
@@ -37,6 +45,19 @@ public class Ingredient extends BaseObject {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	
+	
+	@OneToOne
+	@JoinColumn(name = "ingredient_id", nullable = false)
+	@JsonIgnore
+	public Ingredient getIngredient() {
+		return ingredient;
+	}
+
+	public void setIngredient(Ingredient ingredient) {
+		this.ingredient = ingredient;
 	}
 
 	@Override
