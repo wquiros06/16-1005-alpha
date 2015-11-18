@@ -24,6 +24,7 @@
             <ref bean="userManager"/>
             <ref bean="ingredientManager" />
             <ref bean="dishIngredientManager" />
+             <ref bean="dishManager" />
         </jaxrs:serviceBeans>
         <jaxrs:providers>
             <ref bean="jsonProvider"/>

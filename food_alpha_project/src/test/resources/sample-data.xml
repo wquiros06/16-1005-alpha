@@ -312,4 +312,23 @@
 		</row>
 	</table>
 
+	<table name="dish">
+		<column>id</column>
+		<column>name</column>
+		<column>description</column>
+		<column>photo</column>
+		<row>
+			<value description="id">1</value>
+			<value description="name">ArrozconPollo</value>
+			<value description="name">Comida de Fiesta</value>
+			<value description="name">10</value>
+		</row>
+		<row>
+			<value description="id">2</value>
+			<value description="name">Cantones</value>
+			<value description="name">Comida China</value>
+			<value description="name">11</value>
+		</row>
+	</table>
+	
 </dataset>
