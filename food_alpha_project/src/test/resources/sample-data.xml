@@ -142,17 +142,17 @@
 			<value description="measure">Gramos</value>
 		</row>
 	</table>
-	
+
 	<table name="ingredient">
 		<column>id</column>
-		<column>name</column> 
+		<column>name</column>
 		<row>
 			<value description="id">1</value>
-			<value description="name">Culantro</value> 
+			<value description="name">Culantro</value>
 		</row>
 		<row>
 			<value description="id">2</value>
-			<value description="name">Pollo</value> 
+			<value description="name">Pollo</value>
 		</row>
 	</table>
 

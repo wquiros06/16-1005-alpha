@@ -9,5 +9,6 @@
         <mapping class="org.appfuse.model.User"/>
         <mapping class="org.appfuse.model.Role"/>
         <mapping class="com.ulacit.devappweb.model.Ingredient"/>
+        <mapping class="com.ulacit.devappweb.model.DishIngredient"/>
     </session-factory>
 </hibernate-configuration>
