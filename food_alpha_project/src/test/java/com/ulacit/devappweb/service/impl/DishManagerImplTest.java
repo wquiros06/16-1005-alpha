@@ -41,7 +41,7 @@ public class DishManagerImplTest extends BaseManagerMockTestCase {
     public void testGetDishes() {
         log.debug("testing getAll...");
         //given
-        final List dishes = new ArrayList();
+        final List<Dish> dishes = new ArrayList();
         given(dao.getAll()).willReturn(dishes);
 
         //when
