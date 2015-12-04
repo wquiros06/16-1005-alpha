@@ -23,7 +23,7 @@ public class IngredientManagerImplTest extends BaseManagerMockTestCase {
     private IngredientDao dao;
 
     @Test
-    public void testGetPerson() {
+    public void testGetIngredient() {
         log.debug("testing get...");
         //given
         final Long id = 1L;

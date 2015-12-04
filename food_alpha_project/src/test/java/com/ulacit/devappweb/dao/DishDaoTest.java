@@ -30,18 +30,18 @@ public class DishDaoTest extends BaseDaoTestCase {
         dish = dishDao.save(dish);
         flush();
 
-        dish = dishDao.get(dish.getId());
+        dish = dishDao.get(dish.getDishId());
 
         assertEquals("Cantones", dish.getName());
-        assertNotNull(dish.getId());
+        assertNotNull(dish.getDishId());
 
         log.debug("removing dish...");
 
-        dishDao.remove(dish.getId());
+        dishDao.remove(dish.getDishId());
         flush();
 
         // should throw DataAccessException
-        dishDao.get(dish.getId());
+        dishDao.get(dish.getDishId());
     }
 
 }

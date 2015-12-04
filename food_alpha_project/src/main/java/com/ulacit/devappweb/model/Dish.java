@@ -19,21 +19,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "dish")
 public class Dish extends BaseObject {
-	private Long id;
+	private Long dishId;
 	private String name;
 	private String description;
 	private Long photo;
 	private Order order;
+	private Menu menu;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", unique = true, nullable = false)
-	public Long getId() {
-		return id;
+	@Column(name = "dish_id", unique = true, nullable = false)
+	public Long getDishId() {
+		return dishId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setDishId(Long dishId) {
+		this.dishId = dishId;
 	}
 
 	@Column(name = "name", length = 100)
@@ -54,6 +55,7 @@ public class Dish extends BaseObject {
 		this.description = description;
 	}
 	
+	@Column(name = "photo")
 	public Long getPhoto() {
 		return photo;
 	}
@@ -72,13 +74,24 @@ public class Dish extends BaseObject {
 	public void setOrder(Order order) {
 		this.order = order;
 	}
+	
+	@ManyToOne
+	@JoinColumn(name = "menu_id", nullable = false)
+	@JsonIgnore	
+	public Menu getMenu() {
+		return menu;
+	}
+
+	public void setMenu(Menu menu) {
+		this.menu = menu;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((dishId == null) ? 0 : dishId.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((photo == null) ? 0 : photo.hashCode());
 		return result;
@@ -98,10 +111,10 @@ public class Dish extends BaseObject {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
-		if (id == null) {
-			if (other.id != null)
+		if (dishId == null) {
+			if (other.dishId != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!dishId.equals(other.dishId))
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -118,7 +131,9 @@ public class Dish extends BaseObject {
 
 	@Override
 	public String toString() {
-		return "Ingredient [id=" + id + ", name=" + name + "]";
+		return "Dish [dishId=" + dishId + ", name=" + name + ", description=" + description + ", photo=" + photo + "]";
 	}
 
+	
+	
 }

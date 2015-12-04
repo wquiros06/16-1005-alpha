@@ -25,14 +25,9 @@ public class EmployeeHibernate extends GenericDaoHibernate<Employee, Long> imple
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Employee> findByLastName(String lastName) {
-		return getSession().createCriteria(Employee.class).add(Restrictions.eq("lastName", lastName)).list();
+		return getSession().createCriteria(Employee.class).add(Restrictions.eq("last_name", lastName)).list();
 	}
 
-	@Override
-	@SuppressWarnings("unchecked")
-	public List<Employee> findByEmail(String email) {
-		return getSession().createCriteria(Employee.class).add(Restrictions.eq("email", email)).list();
-	}
 
 
 }

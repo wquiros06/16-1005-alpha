@@ -9,5 +9,4 @@ import java.util.List;
 public interface EmployeeDao extends GenericDao<Employee, Long> {
 	public List<Employee> findByName(String name);
 	public List<Employee> findByLastName(String lastName);
-	public List<Employee> findByEmail(String email);
 }

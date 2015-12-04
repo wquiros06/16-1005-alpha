@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "order")
 public class Order extends BaseObject {
 	private Long orderId;
-	private Date dateOrder;
+	private String dateOrder;
 	private Employee employee;
 	private Set<Dish> orderDish;
 
@@ -41,11 +41,11 @@ public class Order extends BaseObject {
 	}
 
 	@Column(name = "date_order")
-	public Date getDateOrder() {
+	public String getDateOrder() {
 		return dateOrder;
 	}
 
-	public void setDateOrder(Date dateOrder) {
+	public void setDateOrder(String dateOrder) {
 		this.dateOrder = dateOrder;
 	}
 

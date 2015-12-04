@@ -21,9 +21,7 @@ public interface EmployeeMapper {
 			@Mapping(source = "employeeId", target = "employeeId"),
 			@Mapping(source = "identity", target = "identity"), 
 			@Mapping(source = "name", target = "name"),
-			@Mapping(source = "lastName", target = "lastName"),
-			@Mapping(source = "employeeContact", target = "employeeContact"),
-			@Mapping(source = "employeeOrder", target = "employeeOrder")			
+			@Mapping(source = "lastName", target = "lastName")			
 			})
 	EmployeeDTO employeeToEmployeeDTO(Employee employee);
 }

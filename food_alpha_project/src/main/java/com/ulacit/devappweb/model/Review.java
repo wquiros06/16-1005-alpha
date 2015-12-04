@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "review")
 public class Review extends BaseObject {
-	private Long id;
+	private Long reviewId;
 	private Employee employee;
 	private Dish dish;
 	private String rating;
@@ -29,18 +29,18 @@ public class Review extends BaseObject {
 	// START SNIPPET: Review
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", unique = true, nullable = false)
-	public Long getId() {
-		return id;
+	@Column(name = "review_id", unique = true, nullable = false)
+	public Long getReviewId() {
+		return reviewId;
 	}
-	// END SNIPET: reviewid
+	// END SNIPET: reviewId
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setReviewId(Long reviewId) {
+		this.reviewId = reviewId;
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "id", nullable = false)
+	@JoinColumn(name = "employee_id", nullable = false)
 	@JsonIgnore	
 	public Employee getEmployee() {
 		return employee;
@@ -50,7 +50,7 @@ public class Review extends BaseObject {
 	}
 	
 	@OneToOne
-	@JoinColumn(name = "id", nullable = false)
+	@JoinColumn(name = "dish_id", nullable = false)
 	@JsonIgnore	
 	public Dish getDish() {
 		return dish;
@@ -58,19 +58,19 @@ public class Review extends BaseObject {
 	public void setDish(Dish dish) {
 		this.dish = dish;
 	}
-	
+
 	@Column(name = "rating", length = 5)
-	public String getRanting() {
+	public String getRating() {
 		return rating;
 	}
 
 	public void setRating(String rating) {
 		this.rating = rating;
 	}
-	
+
 	@Column(name = "comment", length = 250)
 	public String getComment() {
-		return rating;
+		return comment;
 	}
 
 	public void setComment(String comment) {
@@ -81,9 +81,9 @@ public class Review extends BaseObject {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((rating == null) ? 0 : rating.hashCode());
 		result = prime * result + ((comment == null) ? 0 : comment.hashCode());
+		result = prime * result + ((rating == null) ? 0 : rating.hashCode());
+		result = prime * result + ((reviewId == null) ? 0 : reviewId.hashCode());
 		return result;
 	}
 
@@ -96,27 +96,28 @@ public class Review extends BaseObject {
 		if (getClass() != obj.getClass())
 			return false;
 		Review other = (Review) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (comment == null) {
+			if (other.comment != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!comment.equals(other.comment))
 			return false;
 		if (rating == null) {
 			if (other.rating != null)
 				return false;
 		} else if (!rating.equals(other.rating))
 			return false;
-		if (comment == null) {
-			if (other.comment != null)
+		if (reviewId == null) {
+			if (other.reviewId != null)
 				return false;
-		} else if (!comment.equals(other.comment))
+		} else if (!reviewId.equals(other.reviewId))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Review [id=" + id + ", rating=" + rating + ", comment=" + comment + "]";
+		return "Review [reviewId=" + reviewId + ", rating=" + rating + ", comment=" + comment + "]";
 	}
 
+	
 }

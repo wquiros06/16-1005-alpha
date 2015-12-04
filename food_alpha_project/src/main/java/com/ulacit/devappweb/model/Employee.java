@@ -25,6 +25,7 @@ public class Employee extends BaseObject {
 	private String lastName;
 	private Set<Contact> employeeContact;
 	private Set<Order> employeeOrder;
+	private Set<Review> employeeReview;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,8 +33,8 @@ public class Employee extends BaseObject {
 	public Long getEmployeeId() {
 		return employeeId;
 	}
-	public void setEmployeeId(Long id) {
-		this.employeeId = id;
+	public void setEmployeeId(Long employeeId) {
+		this.employeeId = employeeId;
 	}
 	
 	@Column(name = "identity", length = 32)
@@ -74,6 +75,15 @@ public class Employee extends BaseObject {
 	}
 	public void setEmployeeOrder(Set<Order> employeeOrder) {
 		this.employeeOrder = employeeOrder;
+	}
+	
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "employee", cascade = CascadeType.ALL)
+	public Set<Review> getEmployeeReview() {
+		return employeeReview;
+	}
+	public void setEmployeeReview(Set<Review> employeeReview) {
+		this.employeeReview = employeeReview;
 	}
 	@Override
 	public int hashCode() {

@@ -1,32 +1,25 @@
 package com.ulacit.devappweb.dto;
 
-import java.util.Arrays;
-import java.util.Set;
+import javax.xml.bind.annotation.XmlRootElement;
 
-import com.ulacit.devappweb.model.Contact;
-import com.ulacit.devappweb.model.Order;
-
+@XmlRootElement(name = "employee")
 public class EmployeeDTO {
 	private Long employeeId;
 	private String identity;
 	private String name;
 	private String lastName;
-	private Contact[] employeeContact;
-	private Order[] employeeOrder;
+
 	
 	
 	public EmployeeDTO() {
 		super();
 	}
-	public EmployeeDTO(Long employeeId, String identity, String name, String lastName, Contact[] employeeContact,
-			Order[] employeeOrder) {
+	public EmployeeDTO(Long employeeId, String identity, String name, String lastName) {
 		super();
 		this.employeeId = employeeId;
 		this.identity = identity;
 		this.name = name;
 		this.lastName = lastName;
-		this.employeeContact = employeeContact;
-		this.employeeOrder = employeeOrder;
 	}
 	public Long getEmployeeId() {
 		return employeeId;
@@ -52,24 +45,12 @@ public class EmployeeDTO {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public Contact[] getEmployeeContact() {
-		return employeeContact;
-	}
-	public void setEmployeeContact(Contact[] employeeContact) {
-		this.employeeContact = employeeContact;
-	}
-	public Order[] getEmployeeOrder() {
-		return employeeOrder;
-	}
-	public void setEmployeeOrder(Order[] employeeOrder) {
-		this.employeeOrder = employeeOrder;
-	}
 	@Override
 	public String toString() {
 		return "EmployeeDTO [employeeId=" + employeeId + ", identity=" + identity + ", name=" + name + ", lastName="
-				+ lastName + ", employeeContact=" + Arrays.toString(employeeContact) + ", employeeOrder="
-				+ Arrays.toString(employeeOrder) + "]";
+				+ lastName + "]";
 	}
+	
 	
 	
 }

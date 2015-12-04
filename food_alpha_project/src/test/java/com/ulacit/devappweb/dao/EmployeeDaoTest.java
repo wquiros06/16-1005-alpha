@@ -17,18 +17,21 @@ public class EmployeeDaoTest extends BaseDaoTestCase {
 
     @Test
     public void testFindByName() throws Exception {
+    	log.debug("testFindByName...");
         List<Employee> employees = employeeDao.findByName("Wen");
         assertTrue(employees.size() > 0);
     }
     
     @Test
     public void testFindByLastName() throws Exception {
+    	log.debug("testFindByLastName...");
     	List<Employee> employees = employeeDao.findByLastName("Quiros");
         assertTrue(employees.size() > 0);
     }
 
     @Test
-    public void testgetCandidates() throws Exception {
+    public void testgetEmployees() throws Exception {
+    	log.debug("testgetEmployees...");
         List<Employee> employees = employeeDao.getAll();
         assertTrue(employees.size() > 0);
     }
@@ -36,16 +39,19 @@ public class EmployeeDaoTest extends BaseDaoTestCase {
     
     @Test(expected=DataAccessException.class)
     public void testAddAndRemoveEmployee() throws Exception {
+    	log.debug("Start add testAddAndRemoveEmployee ...");
         Employee employee = new Employee();
         employee.setName("Erick");
         employee.setLastName("Monge");
+        employee.setIdentity("123456789");
 
+        log.debug("saving employee ...");
         employee = employeeDao.save(employee);
         flush();
 
         employee = employeeDao.get(employee.getEmployeeId());
 
-        assertEquals("Country", employee.getEmployeeId());
+        assertEquals("Erick", employee.getName());
         assertNotNull(employee.getEmployeeId());
 
         log.debug("removing employee...");
