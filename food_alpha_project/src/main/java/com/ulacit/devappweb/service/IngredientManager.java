@@ -43,11 +43,11 @@ public interface IngredientManager extends GenericManager<Ingredient, Long> {
 	@POST
 	@Path("/update/")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	Boolean create(@QueryParam("id") Long id,@QueryParam("name") String name);
+	Boolean update(@QueryParam("id") Long id,@QueryParam("name") String name);
 	
 	@POST
 	@Path("/delete/")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	Boolean create(@QueryParam("id") Long id);
+	Boolean delete(@QueryParam("id") Long id);
 	
 }

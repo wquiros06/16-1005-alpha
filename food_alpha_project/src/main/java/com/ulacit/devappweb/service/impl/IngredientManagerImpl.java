@@ -47,4 +47,59 @@ public class IngredientManagerImpl extends GenericManagerImpl<Ingredient, Long> 
 
 		return ingredientDTOs;
 	}
+
+	@Override
+	public Boolean create(String name) {
+		// TODO Auto-generated method stub
+		Boolean result = new Boolean(false);
+		Ingredient ingredient = new Ingredient();
+
+		ingredient.setName(name);
+
+		try {
+			ingredientDao.save(ingredient);
+			result = true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return result;
+	}
+
+	@Override
+	public Boolean update(Long id, String name) {
+		// TODO Auto-generated method stub
+		Boolean result = new Boolean(false);
+		Ingredient ingredient = new Ingredient();
+
+		ingredient.setId(id);
+		ingredient.setName(name);
+
+		try {
+			ingredientDao.save(ingredient);
+			result = true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return result;
+	}
+
+	@Override
+	public Boolean delete(Long id) {
+		// TODO Auto-generated method stub
+		Boolean result = new Boolean(false);
+		Ingredient ingredient = new Ingredient();
+
+		ingredient.setId(id);
+
+		try {
+			ingredientDao.remove(ingredient);
+			result = true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return result;
+	}
 }
