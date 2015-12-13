@@ -17,7 +17,7 @@ import com.ulacit.devappweb.service.IngredientManager;
 
 @Transactional
 @Service("ingredientManager")
-@WebService(serviceName = "IngredientService", endpointInterface = "com.ulacit.devappweb.IngredientManager")
+@WebService(serviceName = "IngredientService", endpointInterface = "com.ulacit.devappweb.service.IngredientManager")
 public class IngredientManagerImpl extends GenericManagerImpl<Ingredient, Long> implements IngredientManager {
 	IngredientDao ingredientDao;
 

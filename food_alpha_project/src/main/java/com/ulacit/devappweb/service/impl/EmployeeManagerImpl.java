@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package com.ulacit.devappweb.service.impl;
 
 import java.util.List;
@@ -18,7 +21,7 @@ import com.ulacit.devappweb.service.EmployeeManager;
 
 @Transactional
 @Service("employeeManager")
-@WebService(serviceName = "EmployeeService", endpointInterface = "com.ulacit.devappweb.EmployeeManager")
+@WebService(serviceName = "EmployeeService", endpointInterface = "com.ulacit.devappweb.service.EmployeeManager")
 public class EmployeeManagerImpl extends GenericManagerImpl<Employee, Long>implements EmployeeManager {
 	EmployeeDao employeeDao;
 

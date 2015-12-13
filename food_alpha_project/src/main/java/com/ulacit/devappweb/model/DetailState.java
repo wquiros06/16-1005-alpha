@@ -14,6 +14,7 @@ import org.appfuse.model.BaseObject;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@SuppressWarnings("serial")
 @XmlRootElement
 @Entity
 @Table(name = "detail_state")

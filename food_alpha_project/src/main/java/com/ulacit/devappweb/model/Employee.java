@@ -15,6 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.appfuse.model.BaseObject;
 
+@SuppressWarnings("serial")
 @XmlRootElement
 @Entity
 @Table(name = "employee")
@@ -24,67 +25,74 @@ public class Employee extends BaseObject {
 	private String name;
 	private String lastName;
 	private Set<Contact> employeeContact;
-	private Set<Order> employeeOrder;
 	private Set<Review> employeeReview;
-	
+	private Set<Orders> employeeOrders;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "employee_id", unique = true, nullable = false)
 	public Long getEmployeeId() {
 		return employeeId;
 	}
+
 	public void setEmployeeId(Long employeeId) {
 		this.employeeId = employeeId;
 	}
-	
+
 	@Column(name = "identity", length = 32)
 	public String getIdentity() {
 		return identity;
 	}
+
 	public void setIdentity(String identity) {
 		this.identity = identity;
 	}
-	
+
 	@Column(name = "name", length = 150)
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	@Column(name = "last_name", length = 150)
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "employee", cascade = CascadeType.ALL)
 	public Set<Contact> getEmployeeContact() {
 		return employeeContact;
 	}
+
 	public void setEmployeeContact(Set<Contact> employeeContact) {
 		this.employeeContact = employeeContact;
 	}
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "employee", cascade = CascadeType.ALL)
-	public Set<Order> getEmployeeOrder() {
-		return employeeOrder;
-	}
-	public void setEmployeeOrder(Set<Order> employeeOrder) {
-		this.employeeOrder = employeeOrder;
-	}
-	
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "employee", cascade = CascadeType.ALL)
 	public Set<Review> getEmployeeReview() {
 		return employeeReview;
 	}
+
 	public void setEmployeeReview(Set<Review> employeeReview) {
 		this.employeeReview = employeeReview;
 	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "employee", cascade = CascadeType.ALL)
+	public Set<Orders> getEmployeeOrders() {
+		return employeeOrders;
+	}
+
+	public void setEmployeeOrders(Set<Orders> employeeOrders) {
+		this.employeeOrders = employeeOrders;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -95,6 +103,7 @@ public class Employee extends BaseObject {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -126,7 +135,7 @@ public class Employee extends BaseObject {
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Employee [employeeId=" + employeeId + ", identity=" + identity + ", name=" + name + ", lastName="

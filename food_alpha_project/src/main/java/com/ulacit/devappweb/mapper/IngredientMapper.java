@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package com.ulacit.devappweb.mapper;
 
 
@@ -11,6 +14,10 @@ import org.mapstruct.factory.Mappers;
 import com.ulacit.devappweb.dto.IngredientDTO;
 import com.ulacit.devappweb.model.Ingredient;
 
+/**
+ * @author Desarrollo
+ *
+ */
 @Mapper
 public interface IngredientMapper {
 

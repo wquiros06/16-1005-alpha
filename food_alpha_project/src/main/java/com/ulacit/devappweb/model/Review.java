@@ -1,13 +1,12 @@
 package com.ulacit.devappweb.model;
  
 import javax.persistence.Column;
-import javax.persistence.Entity; 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -20,11 +19,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "review")
 public class Review extends BaseObject {
-	private Long reviewId;
-	private Employee employee;
-	private Dish dish;
+	private Long reviewId;	
 	private String rating;
 	private String comment;
+	private Employee employee;
+	private Dish dish;
 	
 	// START SNIPPET: Review
 	@Id
@@ -48,16 +47,6 @@ public class Review extends BaseObject {
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
-	
-	@OneToOne
-	@JoinColumn(name = "dish_id", nullable = false)
-	@JsonIgnore	
-	public Dish getDish() {
-		return dish;
-	}
-	public void setDish(Dish dish) {
-		this.dish = dish;
-	}
 
 	@Column(name = "rating", length = 5)
 	public String getRating() {
@@ -75,6 +64,24 @@ public class Review extends BaseObject {
 
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+	
+	
+
+	/**
+	 * @return the dish
+	 */
+	@ManyToOne
+	@JoinColumn(name = "dish_id", nullable = false)
+	public Dish getDish() {
+		return dish;
+	}
+
+	/**
+	 * @param dish the dish to set
+	 */
+	public void setDish(Dish dish) {
+		this.dish = dish;
 	}
 
 	@Override

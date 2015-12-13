@@ -1,7 +1,6 @@
 package com.ulacit.devappweb.service.impl;
 
 import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
@@ -14,9 +13,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import com.ulacit.devappweb.dao.EmployeeDao;
-import com.ulacit.devappweb.dto.EmployeeDTO;
 import com.ulacit.devappweb.model.Employee;
-import com.ulacit.devappweb.model.Ingredient;
 
 public class EmployeeManagerImplTest extends BaseManagerMockTestCase {
 

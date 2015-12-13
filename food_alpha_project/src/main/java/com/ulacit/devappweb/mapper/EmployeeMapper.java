@@ -1,7 +1,14 @@
+/**
+ * 
+ */
 package com.ulacit.devappweb.mapper;
 
 import java.util.List;
 
+/**
+ * @author Desarrollo
+ *
+ */
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
@@ -25,3 +32,4 @@ public interface EmployeeMapper {
 			})
 	EmployeeDTO employeeToEmployeeDTO(Employee employee);
 }
+

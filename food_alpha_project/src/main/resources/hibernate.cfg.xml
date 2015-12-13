@@ -1,22 +1,22 @@
-<!-- The following doctype doesn't work when offline, so default to old one, which does work.
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">-->
+<!-- The following doctype doesn't work when offline, so default to old one, 
+	which does work. <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate 
+	Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"> -->
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
     "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
-    <session-factory>
-        <mapping class="org.appfuse.model.User"/>
-        <mapping class="org.appfuse.model.Role"/>
-        <mapping class="com.ulacit.devappweb.model.Ingredient"/>
-        <mapping class="com.ulacit.devappweb.model.DishIngredient"/>
-        <mapping class="com.ulacit.devappweb.model.Contact"/>
-        <mapping class="com.ulacit.devappweb.model.Employee"/>
-        <mapping class="com.ulacit.devappweb.model.Review"/>
-        <mapping class="com.ulacit.devappweb.model.Dish"/>
-        <mapping class="com.ulacit.devappweb.model.Menu"/>
-        <mapping class="com.ulacit.devappweb.model.DetailState"/>
+	<session-factory>
+		<mapping class="org.appfuse.model.User" />
+		<mapping class="org.appfuse.model.Role" />
+		<mapping class="com.ulacit.devappweb.model.Contact" />
+		<mapping class="com.ulacit.devappweb.model.DetailState"/>
+		<mapping class="com.ulacit.devappweb.model.Dish"/>
+		<mapping class="com.ulacit.devappweb.model.Employee" />		
         <mapping class="com.ulacit.devappweb.model.HeaderState"/>
-        <mapping class="com.ulacit.devappweb.model.Order"/>
-    </session-factory>
+        <mapping class="com.ulacit.devappweb.model.Ingredient"/>
+        <mapping class="com.ulacit.devappweb.model.Menu"/>
+        <mapping class="com.ulacit.devappweb.model.Review"/>
+        <mapping class="com.ulacit.devappweb.model.UserFood"/>
+        <mapping class="com.ulacit.devappweb.model.Orders"/>
+	</session-factory>
 </hibernate-configuration>

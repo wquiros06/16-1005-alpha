@@ -1,18 +1,21 @@
 package com.ulacit.devappweb.model;
- 
+
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Entity; 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.appfuse.model.BaseObject;
-
-import com.fasterxml.jackson.annotation.JsonIgnore; 
 
 @SuppressWarnings("serial")
 @XmlRootElement
@@ -23,8 +26,9 @@ public class Dish extends BaseObject {
 	private String name;
 	private String description;
 	private Long photo;
-	private Order order;
+	private Orders orders;
 	private Menu menu;
+	private Set<Review> dishReview;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -45,7 +49,7 @@ public class Dish extends BaseObject {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	@Column(name = "description", length = 255)
 	public String getDescription() {
 		return description;
@@ -54,7 +58,7 @@ public class Dish extends BaseObject {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	@Column(name = "photo")
 	public Long getPhoto() {
 		return photo;
@@ -63,27 +67,42 @@ public class Dish extends BaseObject {
 	public void setPhoto(Long photo) {
 		this.photo = photo;
 	}
-	
+
 	@ManyToOne
-	@JoinColumn(name = "order_id", nullable = false)
-	@JsonIgnore	
-	public Order getOrder() {
-		return order;
+	@JoinColumn(name = "orders_id", nullable = false)
+	public Orders getOrders() {
+		return orders;
 	}
 
-	public void setOrder(Order order) {
-		this.order = order;
+	public void setOrders(Orders orders) {
+		this.orders = orders;
 	}
 	
 	@ManyToOne
 	@JoinColumn(name = "menu_id", nullable = false)
-	@JsonIgnore	
 	public Menu getMenu() {
 		return menu;
 	}
 
 	public void setMenu(Menu menu) {
 		this.menu = menu;
+	}
+	
+	
+
+	/**
+	 * @return the dishReview
+	 */
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "dish", cascade = CascadeType.ALL)
+	public Set<Review> getDishReview() {
+		return dishReview;
+	}
+
+	/**
+	 * @param dishReview the dishReview to set
+	 */
+	public void setDishReview(Set<Review> dishReview) {
+		this.dishReview = dishReview;
 	}
 
 	@Override
@@ -134,6 +153,4 @@ public class Dish extends BaseObject {
 		return "Dish [dishId=" + dishId + ", name=" + name + ", description=" + description + ", photo=" + photo + "]";
 	}
 
-	
-	
 }

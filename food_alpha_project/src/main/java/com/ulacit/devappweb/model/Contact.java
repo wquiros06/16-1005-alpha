@@ -12,8 +12,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.appfuse.model.BaseObject;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@SuppressWarnings("serial")
 @XmlRootElement
 @Entity
 @Table(name = "contact")
@@ -43,13 +43,14 @@ public class Contact extends BaseObject {
 	
 	@ManyToOne
 	@JoinColumn(name = "employee_id", nullable = false)
-	@JsonIgnore	
 	public Employee getEmployee() {
 		return employee;
 	}
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

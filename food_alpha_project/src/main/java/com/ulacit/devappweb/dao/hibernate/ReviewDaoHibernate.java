@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.ulacit.devappweb.dao.ReviewDao;
 import com.ulacit.devappweb.model.Review;
+
+
 @Repository("reviewDao")
 public class ReviewDaoHibernate extends GenericDaoHibernate<Review, Long> implements ReviewDao {
 

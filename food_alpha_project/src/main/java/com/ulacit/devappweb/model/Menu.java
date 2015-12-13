@@ -15,7 +15,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.appfuse.model.BaseObject;
  
-
 @SuppressWarnings("serial")
 @XmlRootElement
 @Entity
@@ -24,7 +23,7 @@ public class Menu extends BaseObject {
 	private Long menuId;
 	private String startDate;
 	private String endDate;
-	private Set<Dish> dish;
+	private Set<Dish> menuDish;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,7 +36,7 @@ public class Menu extends BaseObject {
 		this.menuId = menuId;
 	}
 
-	@Column(name = "start_date")
+	@Column(name = "start_date", length = 32)
 	public String getStartDate() {
 		return startDate;
 	}
@@ -46,7 +45,7 @@ public class Menu extends BaseObject {
 		this.startDate = startDate;
 	}
 
-	@Column(name = "end_date")
+	@Column(name = "end_date", length = 32)
 	public String getEndDate() {
 		return endDate;
 	}
@@ -54,17 +53,16 @@ public class Menu extends BaseObject {
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "menu", cascade = CascadeType.ALL)
-	public Set<Dish> getDish() {
-		return dish;
-	}
 	
-
-	public void setDish(Set<Dish> dish) {
-		this.dish = dish;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "menu", cascade = CascadeType.ALL)	
+	public Set<Dish> getMenuDish() {
+		return menuDish;
 	}
-	
+
+	public void setMenuDish(Set<Dish> menuDish) {
+		this.menuDish = menuDish;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -106,7 +104,5 @@ public class Menu extends BaseObject {
 	public String toString() {
 		return "Menu [menuId=" + menuId + ", startDate=" + startDate + ", endDate=" + endDate + "]";
 	}
-
-
-
+	
 }
