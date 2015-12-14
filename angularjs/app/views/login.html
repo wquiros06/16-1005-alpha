@@ -1,0 +1,18 @@
+<h1>Log in</h1>
+<link rel="stylesheet" href="css/style.css"/>
+<form name="myForm" ng-controller="loginController" >
+	<div class="group">
+		<input type="text" id="myUserName" name="myUserName" ng-model="myForm.myUserName" ng-minlength="2"><span class="highlight"></span><span class="bar"></span>
+	    <label>User Name</label>
+	</div>
+	<div class="group">
+		<input type="password" id="myPassword" name="myPassword" ng-model="myForm.myPassword" ng-minlength="2"><span class="highlight"></span><span class="bar"></span>
+	    <label>Password</label>
+	</div>
+    <button type="button" class="button buttonBlue" ng-click="isValidUserFood(myForm)">Log in
+    	<div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+  	</button>
+</form>
+<script src="../../js/login.js"></script>
+
+

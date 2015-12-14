@@ -1,0 +1,26 @@
+﻿<hgroup>
+  <h3>User Food List</h3>
+</hgroup>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="css/table.css"/>
+<div><label>User Name</label><span>{{data.myDataObject.username}}</span></div>
+<div ng-controller="userFoodController">
+	<form>
+		<table>
+			<tr>
+				<th style="display:none">User Food Id</th>
+				<th>User Name</th>
+				<th>Attempt</th>
+				<th>State</th>
+				<th>Is User Admin</th>
+			</tr>
+			<tr ng-repeat="userFood in data.userFoods">
+				<td style="display:none">{{userFood.userFoodId}}</td>
+				<td>{{userFood.userName}}</td>
+				<td>{{userFood.attempt}}</td>
+				<td>{{userFood.state}}</td>
+				<td>{{userFood.adminApp}}</td>
+			</tr>
+		</table>
+	</form>
+</div>

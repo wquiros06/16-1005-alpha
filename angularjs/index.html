@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="dicApp">
+<head>
+	<meta charset="utf-8">
+	<title>Alpha Project</title>
+	<link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="css/menu.css"/>
+</head>
+<body ng-controller="mainController">
+
+<hgroup>
+  <h1>16-1005 Dev-App-Web</h1>
+  <h3>Alpha Project</h3>
+ 
+</hgroup>	
+
+	<!--ul>
+		<li ng-class="menuClass('login')"><a href="#!login">Log in</a></li>
+		<li ng-class="menuClass('userFoods')"><a href="#!userFoods">User Foods</a></li>
+		<li ng-class="menuClass('ingredients')"><a href="#!ingredients">Ingredients</a></li>
+	</ul-->
+	<ul>
+		<li ng-class="menuClass('login')"><a href="#!login">Log in</a></li>
+		<li ng-class="menuClass('userFoods')"><a href="#!userFoods">Users Food</a></li>
+		<li ng-class="menuClass('ingredients')"><a href="#!ingredients">Ingredients</a></li>
+	  </ul>
+	
+<div id="container" ng-view></div>
+
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-route.min.js"></script>
+<script type="text/javascript" src="js/angular-resource.min.js"></script>
+<script type="text/javascript" src="js/angular-strap.min.js"></script>
+
+
+
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="app/controllers.js"></script>
+<script type="text/javascript" src="app/services.js"></script>
+</body>
+</html>

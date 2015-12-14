@@ -1,0 +1,35 @@
+﻿<hgroup>
+  <h3>User Profile</h3>
+</hgroup>
+<link rel="stylesheet" href="css/style.css"/>
+<div><label>User Name:</label><span>{{data.myDataObject.myUserName}}</span></div>
+<div ng-controller="userFoodInfoController">
+
+	<form>
+		<div class="group">
+			<input type="text" id="userFoodId" value="" data-ng-model="userFood.userFoodId" placeholder="Search User by Name">
+			<button type="button" class="button buttonBlue" ng-click="searchUserByName(userFood)">Search
+				<div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+			</button>
+		</div>
+
+		<div class="group">
+			<span>User ID</span><label>{{data.userFood.userFoodId}}</label>
+		</div>
+		
+		<div class="group">
+			<span>User Name</span><label>{{data.userFood.userName}}</label>
+		</div>
+		
+		<div class="group">
+			<span>Attempt</span><label>{{data.userFood.attempt}}</label>
+		</div>
+		
+		<div class="group">
+			<span>State</span><label>{{data.userFood.state}}</label>
+		</div>
+		<div class="group">
+			<span>Is User Admin</span><label>{{data.userFood.adminApp}}</label>
+		</div>
+	</form>
+</div>
