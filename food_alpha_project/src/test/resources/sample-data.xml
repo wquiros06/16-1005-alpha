@@ -221,6 +221,7 @@
 		<column>password</column>
 		<column>attempt</column>
 		<column>state</column>
+		<column>admin_app</column>
 		<column>employee_id</column>
 		<column>detail_state_id</column>
 		<row>
@@ -229,6 +230,7 @@
 			<value description="password">123</value>
 			<value description="attempt">0</value>
 			<value description="state">1</value>
+			<value description="admin_app">0</value>
 			<value description="employee_id">1</value>
 			<value description="detail_state_id">1</value>
 		</row>
@@ -238,6 +240,7 @@
 			<value description="password">123</value>
 			<value description="attempt">0</value>
 			<value description="state">1</value>
+			<value description="admin_app">1</value>
 			<value description="employee_id">2</value>
 			<value description="detail_state_id">1</value>
 		</row>

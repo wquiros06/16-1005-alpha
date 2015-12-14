@@ -25,4 +25,5 @@ public interface DishManager extends GenericManager<Dish, Long> {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	List<DishDTO> getDishes();
+	// http://localhost:8080/services/api/dishes
 }

@@ -18,8 +18,12 @@ public interface UserFoodMapper {
 	List<UserFoodDTO> userFoodstoUserFoodsDTOs(List<UserFood> userFoods);
 
 	@Mappings({ @Mapping(source = "userFoodId", target = "userFoodId"),
-			@Mapping(source = "userName", target = "userName"), @Mapping(source = "password", target = "password"),
-			@Mapping(source = "attempt", target = "attempt"), @Mapping(source = "state", target = "state") })
+			@Mapping(source = "userName", target = "userName"), 
+			@Mapping(source = "password", target = "password"),
+			@Mapping(source = "attempt", target = "attempt"), 
+			@Mapping(source = "state", target = "state"),
+			@Mapping(source = "adminApp", target = "adminApp")
+	})
 	UserFoodDTO userFoodtoUserFoodDTO(UserFood userFood);
 
 }

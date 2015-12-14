@@ -26,5 +26,6 @@ public interface ReviewManager extends GenericManager<Review, Long> {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	List<ReviewDTO> getReviews();
+	// http://localhost:8080/services/api/reviews
 
 }

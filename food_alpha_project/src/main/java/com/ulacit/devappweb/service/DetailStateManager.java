@@ -17,14 +17,14 @@ import com.ulacit.devappweb.model.DetailState;
 @WebService
 @Path("/detailStates")
 public interface DetailStateManager extends GenericManager<DetailState, Long> {
-	
+
 	@GET
 	@Path("/findByName/")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	List<DetailStateDTO> findByName(@QueryParam("name") String name);
-	
-	
+
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	List<DetailStateDTO> getDetailStates();
+	// http://localhost:8080/services/api/detailStates
 }

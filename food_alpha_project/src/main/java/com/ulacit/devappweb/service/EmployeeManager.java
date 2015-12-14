@@ -3,7 +3,6 @@
  */
 package com.ulacit.devappweb.service;
 
-
 import javax.ws.rs.core.MediaType;
 
 import java.util.List;
@@ -31,14 +30,15 @@ public interface EmployeeManager extends GenericManager<Employee, Long> {
 	@Path("/findByName/")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	List<EmployeeDTO> findByName(@QueryParam("name") String name);
-	
+
 	@GET
 	@Path("/findByLastName/")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	List<EmployeeDTO> findByLastName(@QueryParam("lastname") String lastName);
-	
+
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	List<EmployeeDTO> getEmployees();
+	// http://localhost:8080/services/api/employees
 
 }

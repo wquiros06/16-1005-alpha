@@ -20,5 +20,6 @@ public interface OrdersManager extends GenericManager<Orders, Long> {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	List<OrdersDTO> getOrders();
+	//http://localhost:8080/services/api/orders
 
 }

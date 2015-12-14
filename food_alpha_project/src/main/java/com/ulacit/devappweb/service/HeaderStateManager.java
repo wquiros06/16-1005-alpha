@@ -26,5 +26,6 @@ public interface HeaderStateManager extends GenericManager<HeaderState, Long> {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	List<HeaderStateDTO> getHeaderStates();
+	// http://localhost:8080/services/api/headerStates
 
 }

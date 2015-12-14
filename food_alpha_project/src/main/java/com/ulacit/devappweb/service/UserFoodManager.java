@@ -32,5 +32,6 @@ public interface UserFoodManager extends GenericManager<UserFood, Long> {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	List<UserFoodDTO> getuserFoods();
+	//http://localhost:8080/services/api/userFoods
 
 }

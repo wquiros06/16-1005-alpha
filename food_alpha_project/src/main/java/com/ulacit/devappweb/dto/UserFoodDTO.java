@@ -13,6 +13,7 @@ public class UserFoodDTO {
 	private String password;
 	private Integer attempt;
 	private boolean state;
+	private boolean adminApp;
 
 	public UserFoodDTO() {
 		super();
@@ -25,13 +26,15 @@ public class UserFoodDTO {
 	 * @param attempt
 	 * @param state
 	 */
-	public UserFoodDTO(Long userFoodId, String userName, String password, Integer attempt, boolean state) {
+	public UserFoodDTO(Long userFoodId, String userName, String password, Integer attempt, boolean state,
+			boolean adminApp) {
 		super();
 		this.userFoodId = userFoodId;
 		this.userName = userName;
 		this.password = password;
 		this.attempt = attempt;
 		this.state = state;
+		this.adminApp = adminApp;
 	}
 
 	/**
@@ -107,6 +110,21 @@ public class UserFoodDTO {
 	 */
 	public void setState(boolean state) {
 		this.state = state;
+	}
+
+	/**
+	 * @return the adminApp
+	 */
+	public boolean isAdminApp() {
+		return adminApp;
+	}
+
+	/**
+	 * @param adminApp
+	 *            the adminApp to set
+	 */
+	public void setAdminApp(boolean adminApp) {
+		this.adminApp = adminApp;
 	}
 
 }

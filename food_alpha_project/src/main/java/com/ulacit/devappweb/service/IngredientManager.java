@@ -34,20 +34,21 @@ public interface IngredientManager extends GenericManager<Ingredient, Long> {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	List<IngredientDTO> getIngredients();
-	
+	// http://localhost:8080/services/api/ingredients
+
 	@POST
 	@Path("/create/")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	Boolean create(@QueryParam("name") String name);
-	
+
 	@POST
 	@Path("/update/")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	Boolean update(@QueryParam("id") Long id,@QueryParam("name") String name);
-	
+	Boolean update(@QueryParam("id") Long id, @QueryParam("name") String name);
+
 	@POST
 	@Path("/delete/")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	Boolean delete(@QueryParam("id") Long id);
-	
+
 }

@@ -21,7 +21,16 @@
 		</jaxrs:features>
 		<jaxrs:serviceBeans>
 			<ref bean="userManager" />
+			<ref bean="contactManager" />
+			<ref bean="detailStateManager" />
+			<ref bean="dishManager" />
+			<ref bean="employeeManager" />
+			<ref bean="headerStateManager" />
 			<ref bean="ingredientManager" />
+			<ref bean="menuManager" />
+			<ref bean="orderManager" />
+			<ref bean="reviewManager" />
+			<ref bean="userFoodManager" />
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
 			<ref bean="jsonProvider" />

@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.appfuse.service.GenericManager;
 
-import com.ulacit.devappweb.model.Dish;
+import com.ulacit.devappweb.dto.MenuDTO;
 import com.ulacit.devappweb.model.Menu;
 
 @WebService
@@ -19,5 +19,6 @@ public interface MenuManager extends GenericManager<Menu, Long> {
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	List<Dish> getMenues();
+	List<MenuDTO> getMenues();
+	// http://localhost:8080/services/api/menues
 }
