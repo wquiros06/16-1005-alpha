@@ -1,6 +1,4 @@
-﻿/*
-Final Lab
-*/
+﻿
 var uControllers = angular.module('uControllers', ['mgcrea.ngStrap']);
 
 uControllers.controller("mainController", function($scope, $location) {
@@ -64,3 +62,49 @@ uControllers.controller('ingredientsController', ['$scope', 'UService',
             }
         });
     }]);
+
+
+uControllers.controller('AddIngredientController', ['$scope','$location', 'UService',
+    function ($scope, $location, UService) {
+                                                    
+    $scope.AddIngredient = function(ingredient) {
+     $scope.data = {};
+                                                    
+    UService.createIngredient(ingredient.name,function (error, data) {
+        if (!error) {
+         $scope.ingredient.result = data;
+        }
+    });
+                                                    
+    };
+}]);
+
+uControllers.controller('UpdateIngredientController', ['$scope','$location', 'UService',
+                                                    function ($scope, $location, UService) {
+                                                    
+                                                    $scope.UpdateIngredient = function(ingredient) {
+                                                    $scope.data = {};
+                                                    
+                                                    UService.updateIngredient(ingredient.id,ingredient.name,function (error, data) {
+                                                                              if (!error) {
+                                                                              $scope.ingredient.result = data;
+                                                                              }
+  });
+                                                    
+  };
+}]);
+
+uControllers.controller('DeleteIngredientController', ['$scope','$location', 'UService',
+                                                       function ($scope, $location, UService) {
+                                                       
+                                                       $scope.deleteIngredient = function(ingredient) {
+                                                       $scope.data = {};
+                                                       
+                                                       UService.deleteIngredient(ingredient.id,function (error, data) {
+                                                                                 if (!error) {
+                                                                                 $scope.ingredient.result = data;
+                                                                                 }
+                                                                                 });
+                                                       
+                                                       };
+                                                       }]);

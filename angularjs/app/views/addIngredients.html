@@ -1,0 +1,6 @@
+<h2>Add Ingredient</h2>
+<form name="ingredient" ng-controller="AddIngredientController">
+    <label for="name">Name: </label>
+    <input type="text" id="Name" maxlength="50" value="" data-ng-model="ingredient.name" />
+    <button ng-click="AddIngredient(ingredient)">Add</button>
+</form>

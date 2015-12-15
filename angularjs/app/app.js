@@ -28,6 +28,10 @@ dicApp.config(['$routeProvider','$locationProvider',
           templateUrl: 'app/views/ingredients.html',
           controller: 'ingredientsController'
         }).
+               when('/addIngredients', {
+                    templateUrl: 'app/views/addIngredients.html',
+                    controller: 'AddIngredientController'
+                    }).
         otherwise({
             redirectTo: '/login'
         });
