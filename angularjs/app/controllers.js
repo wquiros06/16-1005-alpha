@@ -1,4 +1,4 @@
-﻿
+
 var uControllers = angular.module('uControllers', ['mgcrea.ngStrap']);
 
 uControllers.controller("mainController", function($scope, $location) {
@@ -67,12 +67,12 @@ uControllers.controller('ingredientsController', ['$scope', 'UService',
 uControllers.controller('AddIngredientController', ['$scope','$location', 'UService',
     function ($scope, $location, UService) {
                                                     
-    $scope.AddIngredient = function(ingredient) {
+    $scope.AddIngredient = function(Myingredient) {
      $scope.data = {};
                                                     
-    UService.createIngredient(ingredient.name,function (error, data) {
+    UService.createIngredient(Myingredient.Myname,function (error, data) {
         if (!error) {
-         $scope.ingredient.result = data;
+         $location.path('/ingredients');
         }
     });
                                                     

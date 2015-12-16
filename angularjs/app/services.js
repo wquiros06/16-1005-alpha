@@ -1,4 +1,4 @@
-﻿/*
+/*
 Final Lab
 */
 var uServices = angular.module('uServices', ['ngResource']);
@@ -66,7 +66,7 @@ uServices.factory('UService', function ($http) {
                     });
             },
 			createIngredient:function(query, callback) {
-                $http.get(srvIngredientCreate, { params: { name: query} })
+                $http.post(srvIngredientCreate, { params: { name: query} })
                     .success(function (data) {
                         callback(null, data);
                     })
