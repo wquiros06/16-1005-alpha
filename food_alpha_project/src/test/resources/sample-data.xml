@@ -341,6 +341,27 @@
 		</row>
 	</table>
 
+	<table name="dish_ingredient">
+		<column>id</column>
+		<column>dish_id</column>
+		<column>ingredient_id</column>
+		<column>quantity</column>
+		<column>measure</column>
+		<row>
+			<value description="id">1</value>
+			<value description="dish_id">8</value>
+			<value description="ingredient_id">1</value>
+			<value description="quantity">78</value>
+			<value description="measure">Onzas</value>
+		</row>
+		<row>
+			<value description="id">2</value>
+			<value description="dish_id">9</value>
+			<value description="ingredient_id">2</value>
+			<value description="quantity">18</value>
+			<value description="measure">Gramos</value>
+		</row>
+	</table>
 
 
 </dataset>
