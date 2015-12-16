@@ -23,7 +23,7 @@ public class ContactDaoTest extends BaseDaoTestCase {
 	}
 	
 	@Test(expected = DataAccessException.class)
-	public void testAddAndRemoveStudents() throws Exception {
+	public void testAddAndRemoveContacts() throws Exception {
 		final String email = "wquiros06@gmail.com";
 
 		Contact contact = new Contact();
