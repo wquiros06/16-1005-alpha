@@ -53,14 +53,22 @@ uControllers.controller('userFoodInfoController', ['$scope', 'UService',
 	
 	
 uControllers.controller('ingredientsController', ['$scope', 'UService',
-    function ($scope, UService) {
+    function ($scope, UService,$location) {
         $scope.data = {};
 
         UService.getAllIngredients(function (error, data) {
             if (!error) {
                 $scope.data.ingredients = data;
-            }
-        });
+            }});
+                                   
+      $scope.deleteIngredient = function(ingredient) {
+      UService.deleteIngredient($scope.ingredient.id,function (error, data) {
+          if (!error) {
+            $location.path('/ingredients');
+          }
+    });};
+                                   
+                                                  
     }]);
 
 
@@ -70,7 +78,7 @@ uControllers.controller('AddIngredientController', ['$scope','$location', 'UServ
     $scope.AddIngredient = function(Myingredient) {
      $scope.data = {};
                                                     
-    UService.createIngredient(Myingredient.Myname,function (error, data) {
+    UService.createIngredient(Myingredient.name,function (error, data) {
         if (!error) {
          $location.path('/ingredients');
         }
@@ -80,31 +88,15 @@ uControllers.controller('AddIngredientController', ['$scope','$location', 'UServ
 }]);
 
 uControllers.controller('UpdateIngredientController', ['$scope','$location', 'UService',
-                                                    function ($scope, $location, UService) {
-                                                    
-                                                    $scope.UpdateIngredient = function(ingredient) {
-                                                    $scope.data = {};
-                                                    
-                                                    UService.updateIngredient(ingredient.id,ingredient.name,function (error, data) {
-                                                                              if (!error) {
-                                                                              $scope.ingredient.result = data;
-                                                                              }
+function ($scope, $location, UService) {
+     $scope.UpdateIngredient = function(ingredient) {
+        $scope.data = {};
+        UService.updateIngredient(ingredient.id,ingredient.name,function (error, data) {
+        if (!error) {
+          $location.path('/ingredients');
+       }
   });
                                                     
   };
 }]);
 
-uControllers.controller('DeleteIngredientController', ['$scope','$location', 'UService',
-                                                       function ($scope, $location, UService) {
-                                                       
-                                                       $scope.deleteIngredient = function(ingredient) {
-                                                       $scope.data = {};
-                                                       
-                                                       UService.deleteIngredient(ingredient.id,function (error, data) {
-                                                                                 if (!error) {
-                                                                                 $scope.ingredient.result = data;
-                                                                                 }
-                                                                                 });
-                                                       
-                                                       };
-                                                       }]);

@@ -75,7 +75,7 @@ uServices.factory('UService', function ($http) {
                     });
             },
 			deleteIngredient: function(query, callback) {
-                $http.get(srvIngredientDelete, { params: { id: query} })
+                $http.POST(srvIngredientDelete, { params: { id: query} })
                     .success(function (data) {
                         callback(null, data);
                     })
@@ -83,8 +83,8 @@ uServices.factory('UService', function ($http) {
                         callback(e);
                     });
             },
-			updateIngredient: function(query, callback) {
-                $http.get(srvIngredientUpdate, { params: { id: query} })
+			updateIngredient: function(id,name, callback) {
+                $http.POST(srvIngredientUpdate, { params: { id: id, name: name} })
                     .success(function (data) {
                         callback(null, data);
                     })

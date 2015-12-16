@@ -9,6 +9,7 @@ import com.ulacit.devappweb.dto.IngredientDTO;
 import com.ulacit.devappweb.model.Ingredient;
 
 import javax.jws.WebService;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
