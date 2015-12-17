@@ -38,6 +38,9 @@ public class ContactManagerImpl extends GenericManagerImpl<Contact, Long> implem
 			this.dao = dao;
 		}
 
+		/* (non-Javadoc)
+		 * @see com.ulacit.devappweb.service.ContactManager#findByEmail(java.lang.String)
+		 */
 		@Override
 		public ContactDTO findByEmail(String email) {
 			log.debug("STARTING findByEmail [ContactManagerImpl]...");

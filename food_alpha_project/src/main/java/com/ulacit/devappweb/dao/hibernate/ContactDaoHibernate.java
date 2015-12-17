@@ -14,6 +14,9 @@ public class ContactDaoHibernate extends GenericDaoHibernate<Contact, Long> impl
 		super(Contact.class);
 	}
 
+	/* (non-Javadoc)
+	 * @see com.ulacit.devappweb.dao.ContactDao#findByEmail(java.lang.String)
+	 */
 	@Override
 	public Contact findByEmail(String email) {
 		return (Contact) getSession().createCriteria(Contact.class).add(Restrictions.eq("email", email)).uniqueResult();
